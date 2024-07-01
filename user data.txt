@@ -1,0 +1,18 @@
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd
+#yum update -y
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello World from $(hostname -f) in AZ $EC2_AVAIL_ZONE </h1>" > /var/www/html/index.html
+systemctl restart httpd
+
+Also I have launched instances at once with a script in advanced option
+#!bin/bash
+sudo -i
+yum update 
+yum install nginx -y
+systemctl start nginx
+cd /var/www/html/index.html
+echo "This is My First WEB SERVER" > index.html
